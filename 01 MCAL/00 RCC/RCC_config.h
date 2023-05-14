@@ -1,44 +1,70 @@
 #ifndef		RCC_CONFIG_H
 #define		RCC_CONFIG_H
-/* choose the system clock : 
-							  1- RCC_PPL 
-							  2- RCC_HSE 
-							  3- RCC_HSI   									 
+
+
+//enable or disable clocks , clock security and HSE clock bypass {0 = OFF, 1 = ON}
+#define		RCC_HSI_clk								1
+#define		RCC_HSE_clk								1
+#define		RCC_PLL_clk								1
+#define		RCC_CSS									0
+#define		RCC_HSE_BYP								0
+
+/* choose system clock
+ * options are :
+*RCC_PLL
+*RCC_HSI
+*RCC_HSE
+ */
+#define		RCC_SYS_CLK			  			RCC_HSI
+/* choose AHB prescaler
+ * options are {NO_PRE, 2, 8, 16, 64, 128, 256, 512}
+ * */
+#define		NO_PRE			   				111
+#define		RCC_AHB_PRE						NO_PRE
+/* choose APB low-speed prescaler
+ * options are {NO_PRE, 2, 4, 8, 16}
+ * */
+#define		RCC_APB1_PRE					NO_PRE
+/* choose APB high-speed prescaler
+ * options are {NO_PRE, 2, 4, 8, 16}
+ * */
+#define		RCC_APB2_PRE					NO_PRE
+/* choose  PLL entry clock source
+ * options are :
+ * 0 => HSI / 2
+ * 1 => HSE
+ * */
+#define		RCC_PLL_SRC						0
+/* choose   HSE divider for PLL entry
+ * options are :
+ * 0 =>  HSE
+ * 1 =>  HSE / 2
+ * */
+#define		RCC_PLL_XTPRE					0
+/* choose   PLL multiplication factor
+ * options are {2 : 16}
+ * */
+#define		RCC_PLL_MUL						2
+
+/* choose   Microcontroller clock output
+ * options are  :
+ *  0 => OFF
+*	SYS_CLK
+*	HSI_CLK
+*	HSE_CLK
+*	PLL_CLK {divided by 2}
 */
+#define		 RCC_MCO						0
 
-#define		RCC_SYS_CLK			RCC_PLL
 
-/*choose this if only you work on HSE CLK 
 
-  ByPassfilter: 1- ON
-                2- OFF
-				*/
-#define    HSE_BYP         ON 
 
-/*choose this if only you work on PLL CLK 
- PLL_CLK  :  1- PLL_HSE 
-			 2- PLL_HSI */ 
-			 
-#define   PLL_CLK        PLL_HSE 
-/*choose prescaler factor if you work on PLL CLK 
- PLL_PRE :  1- x1
-			2- x2
-			3- x3 
-			4- x4
-			5- x5  
-			*/
-#define PLL_PRE      x1 
-/* choose if you want to  open M.C CLK output 
- MCO :  1- NO_CLk
-		2- SYS_CLK 
-		3- HSE_CLK
-		4- HSI_CLK
-		5- PLL_CLK_DEV2 
-		*/ 
-#define   MCO     NO_CLk 
-/*choose  prescaler for CLK   AHB    
-AHB_CLK : DEV on /1 ,2 ,4 ,8 ,16 ,64 ,128 ,256 ,512 */
 
-#define  AHB_CLK     1
 
+/* choose  USB prescaler
+ * options are 2 :
+ *  0 => PLL_clk / 1.5
+ *  1 => PLL
+ **/
+#define		RCC_USB_PRE						0
 #endif

@@ -1,20 +1,20 @@
-#include	"Std_Types.h"
-#include	"Bit_Math.h"
-
-#include	"DIO_interface.h"
-#include	"DIO_private.h"
-#include	"DIO_config.h"
+#include 	<00 LIB/Bit_Math.h>
+#include 	<00 LIB/Std_Types.h>
+#include	"01 MCAL/01 GPIO/DIO_private.h"
+#include	"01 MCAL/01 GPIO/DIO_interface.h"
 
 
 
 
 
-void	DIO_voidSetPinDirection(u8 port, u8 pin, u8 Direction)
+
+
+void	DIO_voidSetPinDirection(u8 port, u8 PIN, u8 Direction)
 {
 	/*		Range Check 		*/
-	if(port < 3 && pin < 16)
+	if(port < 3 && PIN < 16)
 	{
-		if(pin<8)	/*		Low	(PIN0:PIN7) CRL	*/
+		if(PIN<8)	/*		Low	(PIN0:PIN7) CRL	*/
 		{
 			switch(port)
 			{
@@ -39,9 +39,9 @@ void	DIO_voidSetPinDirection(u8 port, u8 pin, u8 Direction)
 				GPIOC_CRL |=  ((Direction)<<(PIN * 4));
 				break;
 			}
-		}else if(pin<16)	/*		Low	(PIN8:PIN15) CRL	*/
+		}else if(PIN<16)	/*		Low	(PIN8:PIN15) CRL	*/
 		{
-			pin -= 8;
+			PIN -= 8;
 			switch(port)
 			{
 				case	PORTA	:
@@ -98,10 +98,11 @@ void	DIO_voidSetPinValue(u8 port, u8 pin, u8 Value)
 }
 u8		DIO_u8GetPinValue(u8 port, u8 pin)
 {
+	u8	Local_u8Val = 0x99;
 	/*		Range Check 		*/
 	if(port < 3 && pin < 16)
 	{
-		u8	Local_u8Val = 0x99;
+
 			switch(port)
 			{
 				case	PORTA	:	Local_u8Val	=	GET_BIT(GPIOA_IDR,pin);	break;
@@ -109,5 +110,5 @@ u8		DIO_u8GetPinValue(u8 port, u8 pin)
 				case	PORTC	:	Local_u8Val	=	GET_BIT(GPIOC_IDR,pin);	break;
 			}
 	}else{/*	Return Error	*/}	
-	return local_u8Val;
+	return Local_u8Val;
 }

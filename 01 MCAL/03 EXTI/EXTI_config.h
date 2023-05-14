@@ -2,8 +2,8 @@
 #define		EXTI_CONFIG_H
 //Enable or Disable EXTx_INTERRUPT, options :{ ENABLED, DISABLED}
 #define		EXTI0			DISABLED
-#define		EXTI1			ENABLED
-#define		EXTI2			DISABLED
+#define		EXTI1			DISABLED
+#define		EXTI2			ENABLED
 #define		EXTI3			DISABLED
 #define		EXTI4			DISABLED
 #define		EXTI5			DISABLED
@@ -17,7 +17,6 @@
 #define		EXTI13			DISABLED
 #define		EXTI14			DISABLED
 #define		EXTI15			DISABLED
-
 //select EXTx_CHANNEL(pin), options : { EXTI_ch_A, EXTI_ch_B, EXTI_ch_C}
 #define		EXTI0_ch		EXTI_ch_A
 #define		EXTI1_ch		EXTI_ch_A

@@ -1,9 +1,8 @@
-#include	"Std_Types.h"
-#include	"Bit_Math.h"
-
-#include	"NVIC_interface.h"
-#include	"NVIC_private.h"
-#include	"NVIC_config.h"
+#include 	<00 LIB/Bit_Math.h>
+#include 	<00 LIB/Std_Types.h>
+#include	"01 MCAL/02 NVIC/NVIC_private.h"
+#include	"01 MCAL/02 NVIC/NVIC_interface.h"
+#include	"01 MCAL/02 NVIC/NVIC_config.h"
 
 
 

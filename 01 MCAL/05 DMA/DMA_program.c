@@ -1,9 +1,8 @@
-#include	"lib/Std_Types.h"
-#include	"lib/Bit_Math.h"
-
-#include	"DMA_private.h"
-#include	"DMA_interface.h"
-#include 	"DMA_config.h"
+#include 	<00 LIB/Bit_Math.h>
+#include 	<00 LIB/Std_Types.h>
+#include	"01 MCAL/05 DMA/DMA_private.h"
+#include	"01 MCAL/05 DMA/DMA_interface.h"
+#include 	"01 MCAL/05 DMA/DMA_config.h"
 
 
 
