@@ -24,7 +24,6 @@
 #define PLLON					24
 #define PLLRDY					25
 
-
 //RCC_CFGR bits
 #define SW0						0
 #define SW1						1
@@ -52,6 +51,5 @@
 #define MCO0					24
 #define MCO1					25
 #define MCO2					26
-
 
 #endif

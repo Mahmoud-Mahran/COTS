@@ -1,7 +1,6 @@
 #ifndef		RCC_CONFIG_H
 #define		RCC_CONFIG_H
 
-
 //enable or disable clocks , clock security and HSE clock bypass {0 = OFF, 1 = ON}
 #define		RCC_HSI_clk								1
 #define		RCC_HSE_clk								1
@@ -11,9 +10,9 @@
 
 /* choose system clock
  * options are :
-*RCC_PLL
-*RCC_HSI
-*RCC_HSE
+ *RCC_PLL
+ *RCC_HSI
+ *RCC_HSE
  */
 #define		RCC_SYS_CLK			  			RCC_HSI
 /* choose AHB prescaler
@@ -49,17 +48,12 @@
 /* choose   Microcontroller clock output
  * options are  :
  *  0 => OFF
-*	SYS_CLK
-*	HSI_CLK
-*	HSE_CLK
-*	PLL_CLK {divided by 2}
-*/
+ *	SYS_CLK
+ *	HSI_CLK
+ *	HSE_CLK
+ *	PLL_CLK {divided by 2}
+ */
 #define		 RCC_MCO						0
-
-
-
-
-
 
 /* choose  USB prescaler
  * options are 2 :

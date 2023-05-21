@@ -1,7 +1,6 @@
 #ifndef		EXIT_INTERFACE_H
 #define		EXIT_INTERFACE_H
 
-
 #define 	RISING_EDGE					11
 #define 	FALLING_EDGE				00
 #define 	IOC							22
@@ -9,7 +8,6 @@
 #define		EXTI_ch_A					33
 #define		EXTI_ch_B					44
 #define		EXTI_ch_C					55
-
 
 #define 	EXTI_Line_0					0
 #define 	EXTI_Line_1					1
@@ -28,16 +26,13 @@
 #define 	EXTI_Line_14				14
 #define 	EXTI_Line_15				15
 
+void EXTI_voidInit(void);
+void EXTI_voidEnableInt(u8 line_num);
+void EXTI_voidDisableInt(u8 line_num);
 
-void		EXTI_voidInit(void);
-void		EXTI_voidEnableInt(u8 line_num);
-void		EXTI_voidDisableInt(u8 line_num);
+void EXTI_voidEnableSWI(u8 line_num);
+void EXTI_voidChangeSenseMode(u8 line_num, u8 Sense_Mode);
 
-void		EXTI_voidEnableSWI(u8 line_num);
-void		EXTI_voidChangeSenseMode(u8 line_num, u8 Sense_Mode);
-
-
-void		EXTI_voidSetCallBack(void (*Fptr)(void), u8 EXTI_num);
-
+void EXTI_voidSetCallBack(void (*Fptr)(void), u8 EXTI_num);
 
 #endif

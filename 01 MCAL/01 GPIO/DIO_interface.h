@@ -22,15 +22,12 @@
 #define		PIN14			14
 #define		PIN15			15
 
-
-void	DIO_voidSetPinDirection(u8 port, u8 pin, u8 Direction);
-void	DIO_voidSetPinValue(u8 port, u8 pin, u8 Value);
-u8		DIO_u8GetPinValue(u8 port, u8 pin);
+void DIO_voidSetPinDirection(u8 port, u8 pin, u8 Direction);
+void DIO_voidSetPinValue(u8 port, u8 pin, u8 Value);
+u8 DIO_u8GetPinValue(u8 port, u8 pin);
 
 #define		GPIO_HIGH		1
 #define		GPIO_LOW		0
-
-
 
 #define		GPIO_INPUT_ANALOG				0b0000
 #define		GPIO_INPUT_FLOAT				0b0100
@@ -50,8 +47,5 @@ u8		DIO_u8GetPinValue(u8 port, u8 pin);
 #define		GPIO_OUTPUT_50MHZ_OD			0b0111
 #define		GPIO_OUTPUT_50MHZ_AFPP			0b1011
 #define		GPIO_OUTPUT_50MHZ_AFOD			0b1111
-
-
-
 
 #endif

@@ -4,21 +4,17 @@
 #include	"01 MCAL/05 DMA/DMA_interface.h"
 #include 	"01 MCAL/05 DMA/DMA_config.h"
 
-
-
-
-void	DMA1_voidChannelInit()
-{
+void DMA1_voidChannelInit() {
 	/*
-	DMA1 ->Channel[0].CCR = 0x00007AC2;
-	Memory to Memory
-	priority very high
-	Size (Source & Destination) u32
-	MINC, PINC enabled
-	Direction read from Peripheral
-	Transfer Complete Interrupt
-	Channel Disable
-	*/
+	 DMA1 ->Channel[0].CCR = 0x00007AC2;
+	 Memory to Memory
+	 priority very high
+	 Size (Source & Destination) u32
+	 MINC, PINC enabled
+	 Direction read from Peripheral
+	 Transfer Complete Interrupt
+	 Channel Disable
+	 */
 #if (DMA1_CHANNEL1 == ENABLED)
 	/*		Make Sure that the channel is  disabled & clear all config bits */
 	for(int i = 0; i < 15; i++) CLR_BIT(DMA1 -> Channel[0].CCR,i);
@@ -53,7 +49,6 @@ void	DMA1_voidChannelInit()
 	}
 	if(DMA1_CHANNEL1_M2M == ENABLED) SET_BIT(DMA1 -> Channel[0].CCR, 14);
 #endif
-
 
 #if (DMA1_CHANNEL2 == ENABLED)
 	/*		Make Sure that the channel is  disabled & clear all config bits */
@@ -90,7 +85,6 @@ void	DMA1_voidChannelInit()
 	if(DMA1_CHANNEL2_M2M == ENABLED) SET_BIT(DMA1 -> Channel[1].CCR, 14);
 #endif
 
-
 #if (DMA1_CHANNEL3 == ENABLED)
 	/*		Make Sure that the channel is  disabled & clear all config bits */
 	for(int i = 0; i < 15; i++) CLR_BIT(DMA1 -> Channel[2].CCR,i);
@@ -125,7 +119,6 @@ void	DMA1_voidChannelInit()
 	}
 	if(DMA1_CHANNEL3_M2M == ENABLED) SET_BIT(DMA1 -> Channel[2].CCR, 14);
 #endif
-
 
 #if (DMA1_CHANNEL4 == ENABLED)
 	/*		Make Sure that the channel is  disabled & clear all config bits */
@@ -162,7 +155,6 @@ void	DMA1_voidChannelInit()
 	if(DMA1_CHANNEL4_M2M == ENABLED) SET_BIT(DMA1 -> Channel[3].CCR, 14);
 #endif
 
-
 #if (DMA1_CHANNEL5 == ENABLED)
 	/*		Make Sure that the channel is  disabled & clear all config bits */
 	for(int i = 0; i < 15; i++) CLR_BIT(DMA1 -> Channel[4].CCR,i);
@@ -197,7 +189,6 @@ void	DMA1_voidChannelInit()
 	}
 	if(DMA1_CHANNEL5_M2M == ENABLED) SET_BIT(DMA1 -> Channel[4].CCR, 14);
 #endif
-
 
 #if (DMA1_CHANNEL6 == ENABLED)
 	/*		Make Sure that the channel is  disabled & clear all config bits */
@@ -236,61 +227,78 @@ void	DMA1_voidChannelInit()
 
 #if (DMA1_CHANNEL7 == ENABLED)
 	/*		Make Sure that the channel is  disabled & clear all config bits */
-	for(int i = 0; i < 15; i++) CLR_BIT(DMA1 -> Channel[6].CCR,i);
+	for (int i = 0; i < 15; i++)
+		CLR_BIT(DMA1 -> Channel[6].CCR, i);
 	/************************************************************************/
-	if(DMA1_CHANNEL7_TCIE == ENABLED) SET_BIT(DMA1 -> Channel[6].CCR, 1);
-	if(DMA1_CHANNEL7_HTIE == ENABLED) SET_BIT(DMA1 -> Channel[6].CCR, 2);
-	if(DMA1_CHANNEL7_TEIE == ENABLED) SET_BIT(DMA1 -> Channel[6].CCR, 3);
-	if(DMA1_CHANNEL7_DIR_MEM == ENABLED) SET_BIT(DMA1 -> Channel[6].CCR, 4);
-	if(DMA1_CHANNEL7_CIRC == ENABLED) SET_BIT(DMA1 -> Channel[6].CCR, 5);
-	if(DMA1_CHANNEL7_PINC == ENABLED) SET_BIT(DMA1 -> Channel[6].CCR, 6);
-	if(DMA1_CHANNEL7_MINC == ENABLED) SET_BIT(DMA1 -> Channel[6].CCR, 7);
-	switch(DMA1_CHANNEL7_PSIZE){
-	case SIZE_16BIT: SET_BIT(DMA1 -> Channel[6].CCR, 8);break;
-	case SIZE_32BIT: SET_BIT(DMA1 -> Channel[6].CCR, 9);break;
-	default: break;
+	if (DMA1_CHANNEL7_TCIE == ENABLED)
+		SET_BIT(DMA1 -> Channel[6].CCR, 1);
+	if (DMA1_CHANNEL7_HTIE == ENABLED)
+		SET_BIT(DMA1 -> Channel[6].CCR, 2);
+	if (DMA1_CHANNEL7_TEIE == ENABLED)
+		SET_BIT(DMA1 -> Channel[6].CCR, 3);
+	if (DMA1_CHANNEL7_DIR_MEM == ENABLED)
+		SET_BIT(DMA1 -> Channel[6].CCR, 4);
+	if (DMA1_CHANNEL7_CIRC == ENABLED)
+		SET_BIT(DMA1 -> Channel[6].CCR, 5);
+	if (DMA1_CHANNEL7_PINC == ENABLED)
+		SET_BIT(DMA1 -> Channel[6].CCR, 6);
+	if (DMA1_CHANNEL7_MINC == ENABLED)
+		SET_BIT(DMA1 -> Channel[6].CCR, 7);
+	switch (DMA1_CHANNEL7_PSIZE) {
+	case SIZE_16BIT:
+		SET_BIT(DMA1 -> Channel[6].CCR, 8);
+		break;
+	case SIZE_32BIT:
+		SET_BIT(DMA1 -> Channel[6].CCR, 9);
+		break;
+	default:
+		break;
 	}
 
-	switch(DMA1_CHANNEL7_MSIZE){
-	case SIZE_16BIT: SET_BIT(DMA1 -> Channel[6].CCR, 10);break;
-	case SIZE_32BIT: SET_BIT(DMA1 -> Channel[6].CCR, 11);break;
-	default: break;
+	switch (DMA1_CHANNEL7_MSIZE) {
+	case SIZE_16BIT:
+		SET_BIT(DMA1 -> Channel[6].CCR, 10);
+		break;
+	case SIZE_32BIT:
+		SET_BIT(DMA1 -> Channel[6].CCR, 11);
+		break;
+	default:
+		break;
 	}
 
-	switch(DMA1_CHANNEL7_PL){
-	case MEDIUM_PRIORITY: SET_BIT(DMA1 -> Channel[6].CCR, 12);break;
-	case HIGH_PRIORITY: SET_BIT(DMA1 -> Channel[6].CCR, 13);break;
+	switch (DMA1_CHANNEL7_PL) {
+	case MEDIUM_PRIORITY:
+		SET_BIT(DMA1 -> Channel[6].CCR, 12);
+		break;
+	case HIGH_PRIORITY:
+		SET_BIT(DMA1 -> Channel[6].CCR, 13);
+		break;
 	case VERYHIGH_PRIORITY:
 		SET_BIT(DMA1 -> Channel[6].CCR, 12);
 		SET_BIT(DMA1 -> Channel[6].CCR, 13);
 		break;
-	default: break;
+	default:
+		break;
 	}
-	if(DMA1_CHANNEL7_M2M == ENABLED) SET_BIT(DMA1 -> Channel[6].CCR, 14);
+	if (DMA1_CHANNEL7_M2M == ENABLED)
+		SET_BIT(DMA1 -> Channel[6].CCR, 14);
 #endif
 }
 
-void	DMA1_voidStartChannel(u32 * SrcAdd,u32 * DestAdd,u16 BlockLength, u8 ChannelNumber)
-{
-	if( ChannelNumber < 8 && ChannelNumber >= 1){
+void DMA1_voidStartChannel(u32 *SrcAdd, u32 *DestAdd, u16 BlockLength,
+		u8 ChannelNumber) {
+	if (ChannelNumber < 8 && ChannelNumber >= 1) {
 		/*		Make Sure that the channel is  disabled */
-		CLR_BIT(DMA1 -> Channel[ChannelNumber-1].CCR,0);
+		CLR_BIT(DMA1 -> Channel[ChannelNumber-1].CCR, 0);
 
-		DMA1 -> Channel[ChannelNumber-1].CPAR	=	SrcAdd;
-		DMA1 -> Channel[ChannelNumber-1].CMAR	=	DestAdd;
+		DMA1->Channel[ChannelNumber - 1].CPAR = SrcAdd;
+		DMA1->Channel[ChannelNumber - 1].CMAR = DestAdd;
 
 		/*	Load the Block Length				*/
-		DMA1 -> Channel[ChannelNumber-1].CNDTR	=	BlockLength;
-	
+		DMA1->Channel[ChannelNumber - 1].CNDTR = BlockLength;
+
 		/*		Make Sure that the channel is  Enabled to start transfer */
-		SET_BIT(DMA1 -> Channel[ChannelNumber-1].CCR,0);
+		SET_BIT(DMA1 -> Channel[ChannelNumber-1].CCR, 0);
 	}
 }
-
-
-
-
-
-
-
 

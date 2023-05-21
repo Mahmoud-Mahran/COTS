@@ -111,5 +111,4 @@
 #define		DMA1_CHANNEL6_M2M		ENABLED
 #define		DMA1_CHANNEL7_M2M		ENABLED
 
-
 #endif

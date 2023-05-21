@@ -10,11 +10,11 @@
 #define		ADC1_CH6			           DISABLED
 #define		ADC1_CH7			           DISABLED
 #define		ADC1_CH8			           DISABLED
-#define		ADC1_CH9			           ENABLED
+#define		ADC1_CH9			           DISABLED
 //temp sensor
-#define		ADC1_CH16					   DISABLED
+#define		ADC1_CH16					   ENABLED
 //choose ADC  PRESCALER
- //options are {2, 4, 6, 8}
+//options are {2, 4, 6, 8}
 #define		RCC_ADC_PRE						6
 //enable or disable analog watchdog on regular and injected channels
 //options : { ENCABLED, DISABLED }
@@ -50,7 +50,7 @@
 #define 	ADC1_AW_CH						0
 //enable or disable Temperature sensor and VREFINT
 //options : { ENCABLED, DISABLED }
-#define 	TEMP_SENSOR_VREF				DISABLED
+#define 	TEMP_SENSOR_VREF				ENABLED
 //enable or disable External trigger conversion mode for regular channels
 //options : { ENCABLED, DISABLED }
 #define		ADC1_EXT_TRIGGER				ENABLED

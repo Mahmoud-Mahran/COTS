@@ -13,10 +13,8 @@
 #define 	 HSE_CLK						66
 #define 	 PLL_CLK 						77
 
-
-
-void		RCC_voidSysClkInt(void);
-void		RCC_voidEnablePerClk(u8 BusId , u8 PerId);
-void		RCC_voidDisablePerClk(u8 BusId , u8 PerId);
+void RCC_voidSysClkInt(void);
+void RCC_voidEnablePerClk(u8 BusId, u8 PerId);
+void RCC_voidDisablePerClk(u8 BusId, u8 PerId);
 
 #endif

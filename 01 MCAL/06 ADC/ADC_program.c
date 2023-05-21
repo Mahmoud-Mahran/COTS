@@ -1,52 +1,81 @@
 #include 	<00 LIB/Bit_Math.h>
 #include 	<00 LIB/Std_Types.h>
-
+#include 	"01 MCAL/06 ADC/ADC_private.h"
 #include	"01 MCAL/06 ADC/ADC_interface.h"
 #include 	"01 MCAL/06 ADC/ADC_config.h"
-#include 	"01 MCAL/06 ADC/ADC_private.h"
-void ADC_Init(void){
 
-#ifndef			RCC_CFGR
-	#define		RCC_BASE_ADD			(0x40021000)
-	#define		RCC_CFGR				*((u32 *)(RCC_BASE_ADD+0x04))
+void ADC_Init(void) {
+
+#ifndef		RCC_CFGR
+#define		RCC_BASE_ADD			(0x40021000)
+#define		RCC_CFGR				*((u32 *)(RCC_BASE_ADD+0x04))
 #endif
 	/* 		setting ADC prescaler bits according to desired value		*/
-	switch(RCC_ADC_PRE){
-		case 2: break;
-		case 4:
-			SET_BIT(RCC_CFGR, ADCPRE0);
+	switch (RCC_ADC_PRE) {
+	case 2:
 		break;
-		case 6:
-			SET_BIT(RCC_CFGR, ADCPRE1);
+	case 4:
+		SET_BIT(RCC_CFGR, ADCPRE0);
 		break;
-		case 8:
-			SET_BIT(RCC_CFGR, ADCPRE1);
-			SET_BIT(RCC_CFGR, ADCPRE0);
+	case 6:
+		SET_BIT(RCC_CFGR, ADCPRE1);
 		break;
-		default:  break;
-		}
+	case 8:
+		SET_BIT(RCC_CFGR, ADCPRE1);
+		SET_BIT(RCC_CFGR, ADCPRE0);
+		break;
+	default:
+		break;
+	}
 	/* 		setting conversion mode		*/
-	switch(ADC1_CONVERSION_MODE){
-		case CONTINUOUS: SET_BIT(ADC1->CR2, 1);break;
-		case SINGLE: 	 CLR_BIT(ADC1->CR2, 1);break;
+	switch (ADC1_CONVERSION_MODE) {
+	case CONTINUOUS:
+		SET_BIT(ADC1->CR2, 1);
+		break;
+	case SINGLE:
+		CLR_BIT(ADC1->CR2, 1);
+		break;
 	}
 	/* 		setting trigger source		*/
-	switch(ADC1_TRIGGER){
-		case TIMER_1_CC1:  ADC1->CR2 |= (0<<17);break;
-		case TIMER_1_CC2:  ADC1->CR2 |= (1<<17);break;
-		case TIMER_1_CC3:  ADC1->CR2 |= (2<<17);break;
-		case TIMER_2_CC2:  ADC1->CR2 |= (3<<17);break;
-		case TIMER_3_TRGO: ADC1->CR2 |= (4<<17);break;
-		case TIMER_4_CC4:  ADC1->CR2 |= (5<<17);break;
-		case EXTI_LINE_11: ADC1->CR2 |= (6<<17);break;
-		case TIMER_8_TRGO: ADC1->CR2 |= (6<<17);break;
-		case SWSTART:      ADC1->CR2 |= (7<<17);break;
-		default: break;
+	switch (ADC1_TRIGGER) {
+	case TIMER_1_CC1:
+		ADC1->CR2 |= (0 << 17);
+		break;
+	case TIMER_1_CC2:
+		ADC1->CR2 |= (1 << 17);
+		break;
+	case TIMER_1_CC3:
+		ADC1->CR2 |= (2 << 17);
+		break;
+	case TIMER_2_CC2:
+		ADC1->CR2 |= (3 << 17);
+		break;
+	case TIMER_3_TRGO:
+		ADC1->CR2 |= (4 << 17);
+		break;
+	case TIMER_4_CC4:
+		ADC1->CR2 |= (5 << 17);
+		break;
+	case EXTI_LINE_11:
+		ADC1->CR2 |= (6 << 17);
+		break;
+	case TIMER_8_TRGO:
+		ADC1->CR2 |= (6 << 17);
+		break;
+	case SWSTART:
+		ADC1->CR2 |= (7 << 17);
+		break;
+	default:
+		break;
 	}
 	/* 		setting data alignmemt		*/
-	switch(DATA_ALIGNMENT){
-		case RIGHT: CLR_BIT(ADC1->CR2, 11);break;
-		case LEFT: SET_BIT(ADC1->CR2, 11);break;
+	switch (DATA_ALIGNMENT) {
+	case RIGHT:
+		CLR_BIT(ADC1->CR2, 11);
+		break;
+	case LEFT:
+		SET_BIT(ADC1->CR2, 11);
+		break;
 	}
 	/* 		setting channel config		*/
 #if	(ADC1_CH0 == ENABLED)
@@ -81,6 +110,7 @@ void ADC_Init(void){
 		default: break;
 	}
 #endif
+
 #if	(ADC1_CH1 == ENABLED)
 	switch(ADC1_CH1_SAMPLING_TIME){
 		case SMP_1_5:  		ADC1->SMPR2 |= (0<<3);break;
@@ -113,6 +143,7 @@ void ADC_Init(void){
 		default: break;
 	}
 #endif
+
 #if	(ADC1_CH2 == ENABLED)
 	switch(ADC1_CH2_SAMPLING_TIME){
 		case SMP_1_5:  		ADC1->SMPR2 |= (0<<6);break;
@@ -145,6 +176,7 @@ void ADC_Init(void){
 		default: break;
 	}
 #endif
+
 #if	(ADC1_CH3 == ENABLED)
 	switch(ADC1_CH3_SAMPLING_TIME){
 		case SMP_1_5:  		ADC1->SMPR2 |= (0<<9);break;
@@ -177,6 +209,7 @@ void ADC_Init(void){
 		default: break;
 	}
 #endif
+
 #if	(ADC1_CH4 == ENABLED)
 	switch(ADC1_CH4_SAMPLING_TIME){
 		case SMP_1_5:  		ADC1->SMPR2 |= (0<<12);break;
@@ -209,6 +242,7 @@ void ADC_Init(void){
 		default: break;
 	}
 #endif
+
 #if	(ADC1_CH5 == ENABLED)
 	switch(ADC1_CH5_SAMPLING_TIME){
 		case SMP_1_5:  		ADC1->SMPR2 |= (0<<15);break;
@@ -241,6 +275,7 @@ void ADC_Init(void){
 		default: break;
 	}
 #endif
+
 #if	(ADC1_CH6 == ENABLED)
 	switch(ADC1_CH6_SAMPLING_TIME){
 		case SMP_1_5:  		ADC1->SMPR2 |= (0<<18);break;
@@ -273,6 +308,7 @@ void ADC_Init(void){
 		default: break;
 	}
 #endif
+
 #if	(ADC1_CH7 == ENABLED)
 	switch(ADC1_CH7_SAMPLING_TIME){
 		case SMP_1_5:  		ADC1->SMPR2 |= (0<<21);break;
@@ -305,6 +341,7 @@ void ADC_Init(void){
 		default: break;
 	}
 #endif
+
 #if	(ADC1_CH8 == ENABLED)
 	switch(ADC1_CH8_SAMPLING_TIME){
 		case SMP_1_5:  		ADC1->SMPR2 |= (0<<24);break;
@@ -337,85 +374,138 @@ void ADC_Init(void){
 		default: break;
 	}
 #endif
+
 #if	(ADC1_CH9 == ENABLED)
-	switch(ADC1_CH9_SAMPLING_TIME){
-		case SMP_1_5:  		ADC1->SMPR2 |= (0<<27);break;
-		case SMP_7_5:  		ADC1->SMPR2 |= (1<<27);break;
-		case SMP_13_5: 		ADC1->SMPR2 |= (2<<27);break;
-		case SMP_28_5: 		ADC1->SMPR2 |= (3<<27);break;
-		case SMP_41_5: 		ADC1->SMPR2 |= (4<<27);break;
-		case SMP_55_5: 		ADC1->SMPR2 |= (5<<27);break;
-		case SMP_71_5:		ADC1->SMPR2 |= (6<<27);break;
-		case SMP_239_5:		ADC1->SMPR2 |= (7<<27);break;
-		default: break;
+	switch (ADC1_CH9_SAMPLING_TIME) {
+	case SMP_1_5:
+		ADC1->SMPR2 |= (0 << 27);
+		break;
+	case SMP_7_5:
+		ADC1->SMPR2 |= (1 << 27);
+		break;
+	case SMP_13_5:
+		ADC1->SMPR2 |= (2 << 27);
+		break;
+	case SMP_28_5:
+		ADC1->SMPR2 |= (3 << 27);
+		break;
+	case SMP_41_5:
+		ADC1->SMPR2 |= (4 << 27);
+		break;
+	case SMP_55_5:
+		ADC1->SMPR2 |= (5 << 27);
+		break;
+	case SMP_71_5:
+		ADC1->SMPR2 |= (6 << 27);
+		break;
+	case SMP_239_5:
+		ADC1->SMPR2 |= (7 << 27);
+		break;
+	default:
+		break;
 	}
-	switch(ADC1_CH9_SQ){
-		case 1:  			ADC1->SQR3 |= (9<<0);break;
-		case 2:  			ADC1->SQR3 |= (9<<5);break;
-		case 3: 			ADC1->SQR3 |= (9<<10);break;
-		case 4: 			ADC1->SQR3 |= (9<<15);break;
-		case 5: 			ADC1->SQR3 |= (9<<20);break;
-		case 6: 			ADC1->SQR3 |= (9<<25);break;
-		case 7:				ADC1->SQR2 |= (9<<0);break;
-		case 8:				ADC1->SQR2 |= (9<<5);break;
-		case 9:				ADC1->SQR2 |= (9<<10);break;
-		case 10:			ADC1->SQR2 |= (9<<15);break;
-		case 11:			ADC1->SQR2 |= (9<<20);break;
-		case 12:			ADC1->SQR2 |= (9<<25);break;
-		case 13:			ADC1->SQR1 |= (9<<0);break;
-		case 14:			ADC1->SQR1 |= (9<<5);break;
-		case 15:			ADC1->SQR1 |= (9<<10);break;
-		case 16:			ADC1->SQR1 |= (9<<15);break;
-		default: break;
+	switch (ADC1_CH9_SQ) {
+	case 1:
+		ADC1->SQR3 |= (9 << 0);
+		break;
+	case 2:
+		ADC1->SQR3 |= (9 << 5);
+		break;
+	case 3:
+		ADC1->SQR3 |= (9 << 10);
+		break;
+	case 4:
+		ADC1->SQR3 |= (9 << 15);
+		break;
+	case 5:
+		ADC1->SQR3 |= (9 << 20);
+		break;
+	case 6:
+		ADC1->SQR3 |= (9 << 25);
+		break;
+	case 7:
+		ADC1->SQR2 |= (9 << 0);
+		break;
+	case 8:
+		ADC1->SQR2 |= (9 << 5);
+		break;
+	case 9:
+		ADC1->SQR2 |= (9 << 10);
+		break;
+	case 10:
+		ADC1->SQR2 |= (9 << 15);
+		break;
+	case 11:
+		ADC1->SQR2 |= (9 << 20);
+		break;
+	case 12:
+		ADC1->SQR2 |= (9 << 25);
+		break;
+	case 13:
+		ADC1->SQR1 |= (9 << 0);
+		break;
+	case 14:
+		ADC1->SQR1 |= (9 << 5);
+		break;
+	case 15:
+		ADC1->SQR1 |= (9 << 10);
+		break;
+	case 16:
+		ADC1->SQR1 |= (9 << 15);
+		break;
+	default:
+		break;
 	}
 #endif
+
 #if	(ADC1_CH16 == ENABLED)
-	switch(ADC1_CH16_SAMPLING_TIME){
-		case SMP_1_5:  		ADC1->SMPR1 |= (0<<18);break;
-		case SMP_7_5:  		ADC1->SMPR1 |= (1<<18);break;
-		case SMP_13_5: 		ADC1->SMPR1 |= (2<<18);break;
-		case SMP_28_5: 		ADC1->SMPR1 |= (3<<18);break;
-		case SMP_41_5: 		ADC1->SMPR1 |= (4<<18);break;
-		case SMP_55_5: 		ADC1->SMPR1 |= (5<<18);break;
-		case SMP_71_5:		ADC1->SMPR1 |= (6<<18);break;
-		case SMP_239_5:		ADC1->SMPR1 |= (7<<18);break;
+	switch(ADC1_CH16_SAMPLING_TIME) {
+		case SMP_1_5: ADC1->SMPR1 |= (0<<18);break;
+		case SMP_7_5: ADC1->SMPR1 |= (1<<18);break;
+		case SMP_13_5: ADC1->SMPR1 |= (2<<18);break;
+		case SMP_28_5: ADC1->SMPR1 |= (3<<18);break;
+		case SMP_41_5: ADC1->SMPR1 |= (4<<18);break;
+		case SMP_55_5: ADC1->SMPR1 |= (5<<18);break;
+		case SMP_71_5: ADC1->SMPR1 |= (6<<18);break;
+		case SMP_239_5: ADC1->SMPR1 |= (7<<18);break;
 		default: break;
 	}
-	switch(ADC1_CH16_SQ){
-		case 1:  			ADC1->SQR3 |= (16<<0);break;
-		case 2:  			ADC1->SQR3 |= (16<<5);break;
-		case 3: 			ADC1->SQR3 |= (16<<10);break;
-		case 4: 			ADC1->SQR3 |= (16<<15);break;
-		case 5: 			ADC1->SQR3 |= (16<<20);break;
-		case 6: 			ADC1->SQR3 |= (16<<25);break;
-		case 7:				ADC1->SQR2 |= (16<<0);break;
-		case 8:				ADC1->SQR2 |= (16<<5);break;
-		case 9:				ADC1->SQR2 |= (16<<10);break;
-		case 10:			ADC1->SQR2 |= (16<<15);break;
-		case 11:			ADC1->SQR2 |= (16<<20);break;
-		case 12:			ADC1->SQR2 |= (16<<25);break;
-		case 13:			ADC1->SQR1 |= (16<<0);break;
-		case 14:			ADC1->SQR1 |= (16<<5);break;
-		case 15:			ADC1->SQR1 |= (16<<10);break;
-		case 16:			ADC1->SQR1 |= (16<<15);break;
+	switch(ADC1_CH16_SQ) {
+		case 1: ADC1->SQR3 |= (16<<0);break;
+		case 2: ADC1->SQR3 |= (16<<5);break;
+		case 3: ADC1->SQR3 |= (16<<10);break;
+		case 4: ADC1->SQR3 |= (16<<15);break;
+		case 5: ADC1->SQR3 |= (16<<20);break;
+		case 6: ADC1->SQR3 |= (16<<25);break;
+		case 7: ADC1->SQR2 |= (16<<0);break;
+		case 8: ADC1->SQR2 |= (16<<5);break;
+		case 9: ADC1->SQR2 |= (16<<10);break;
+		case 10: ADC1->SQR2 |= (16<<15);break;
+		case 11: ADC1->SQR2 |= (16<<20);break;
+		case 12: ADC1->SQR2 |= (16<<25);break;
+		case 13: ADC1->SQR1 |= (16<<0);break;
+		case 14: ADC1->SQR1 |= (16<<5);break;
+		case 15: ADC1->SQR1 |= (16<<10);break;
+		case 16: ADC1->SQR1 |= (16<<15);break;
 		default: break;
 	}
 #endif
-		ADC1->CR2 |= 1<<0;
-		_delay_ms(50);
+	if(TEMP_SENSOR_VREF == ENABLED) SET_BIT(ADC1->CR2, 23);
+
+	ADC1->CR2 |= 1 << 0;
+	_delay_ms(50);
+	if(ADC1_CALIBRATIN  == ENABLED){
+		SET_BIT(ADC1->CR2, 2);
+		while(GET_BIT(ADC1->CR2, 2));
+	}
 }
 
-
-
-
-
-void ADC_Start(void){
-	ADC1->SR = 0;                      // Clear Status register
-	ADC1->CR2 |= (1<<20);              // Conversion on external event enabled
-	ADC1->CR2 |= 1<<22;                // Start conversion
+void ADC_Start(void) {
+	ADC1->SR = 0;                      	 // Clear Status register
+	ADC1->CR2 |= (1 << 20);              // Conversion on external event enabled
+	ADC1->CR2 |= 1 << 22;                // Start conversion
 }
 
-
-u16 ADC_Read(void){
-	return (u16)ADC1->DR;
+u16 ADC_Read(void) {
+	return (u16) ADC1->DR;
 }

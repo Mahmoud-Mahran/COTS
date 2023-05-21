@@ -3,8 +3,7 @@
  *
  * Created: 3/27/2023 10:09:30 PM
  *  Author: Mahmo
- */ 
-
+ */
 
 #ifndef LCD_CONFIG_H_
 #define LCD_CONFIG_H_
@@ -35,8 +34,6 @@
 #define D6_PIN	6
 #define D7_PIN	7
 
-
 #define	LCD_MODE		BIT_4
-
 
 #endif /* LCD_CONFIG_H_ */

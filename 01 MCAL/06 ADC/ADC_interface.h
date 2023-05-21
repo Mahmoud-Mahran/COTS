@@ -5,11 +5,10 @@
 
 void ADC_Init(void);
 void ADC_Start(void);
-u16 ADC_Read(void);
+u16  ADC_Read(void);
 
 #define				ENABLED					1
 #define				DISABLED				0
-
 
 #define				ADCPRE0					14
 #define 			ADCPRE1					15
@@ -17,12 +16,8 @@ u16 ADC_Read(void);
 #define				SINGLE					2
 #define				CONTINUOUS				3
 
-
-
-
 #define				RIGHT					7
 #define				LEFT					8
-
 
 #define				TIMER_1_CC1				9
 #define				TIMER_1_CC2				10
@@ -42,7 +37,6 @@ u16 ADC_Read(void);
 #define				SMP_55_5				22
 #define				SMP_71_5				23
 #define				SMP_239_5				24
-
 
 #define				TIMER_1_TRGO			25
 #define				TIMER_1_CC4				26

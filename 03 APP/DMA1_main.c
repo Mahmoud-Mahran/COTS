@@ -4,19 +4,16 @@
 //#include "DMA_interface.h"
 //#include "RCC_interface.h"
 //#include "NVIC_interface.h"
-//u32	Processor_Arr1[300];
-//u32	Processor_Arr2[300];
+//u32 Processor_Arr1[300];
+//u32 Processor_Arr2[300];
 //
-//u32	DMA_Arr3[300];
-//u32	DMA_Arr4[300];
+//u32 DMA_Arr3[300];
+//u32 DMA_Arr4[300];
 //
-//
-//int main()
-//{
-//	for(u16 i = 0 ; i < 300 ; i++)
-//	{
-//		Processor_Arr1[i]	=	i;
-//		DMA_Arr3[i]			=	i;
+//int main() {
+//	for (u16 i = 0; i < 300; i++) {
+//		Processor_Arr1[i] = i;
+//		DMA_Arr3[i] = i;
 //	}
 //
 //	/*	System init			*/
@@ -26,27 +23,22 @@
 //	DMA1_voidChannelInit();
 //	NVIC_voidEnablePerInt(17);
 //	/*	DMA1 Channel Transfer Round	*/
-//	DMA1_voidStartChannel(DMA_Arr3,DMA_Arr4,300, 7);
+//	DMA1_voidStartChannel(DMA_Arr3, DMA_Arr4, 300, 7);
 //
 //	/*	Processor Transfer Round	*/
-//	for(u16 i = 0 ; i < 300 ; i++)
-//	{
-//		Processor_Arr2[i]	=	Processor_Arr1[i];
+//	for (u16 i = 0; i < 300; i++) {
+//		Processor_Arr2[i] = Processor_Arr1[i];
 //	}
 //
+//	while (1) {
 //
+//	}
 //
-//while(1)
-//{
-//
+//	return 0;
 //}
 //
-//return 0;
-//}
-//
-//void	DMA1_Channel7_IRQHandler()
-//{
+//void DMA1_Channel7_IRQHandler() {
 //	/*		Toggle led		*/
-//	 int useless = 50;
-//	 GET_BIT(useless, 0);
+//	int useless = 50;
+//	GET_BIT(useless, 0);
 //}

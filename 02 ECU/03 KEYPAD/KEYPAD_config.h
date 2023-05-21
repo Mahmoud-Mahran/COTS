@@ -10,8 +10,6 @@
 #define 	column_3_port		0
 #define 	column_4_port		0
 
-
-
 #define 	row_1_pin			12
 #define 	row_2_pin			13
 #define 	row_3_pin			14
@@ -20,6 +18,5 @@
 #define 	column_2_pin		9
 #define 	column_3_pin		10
 #define 	column_4_pin		11
-
 
 #endif

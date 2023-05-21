@@ -10,7 +10,6 @@
 #define		GPIOA_BRR			*((u32 *)(GPIOA_BASE_ADD+0x14))
 #define		GPIOA_LCKR			*((u32 *)(GPIOA_BASE_ADD+0x18))
 
-
 #define		GPIOB_BASE_ADD		(0x40010C00)
 #define		GPIOB_CRL			*((u32 *)(GPIOB_BASE_ADD+0x00))
 #define		GPIOB_CRH			*((u32 *)(GPIOB_BASE_ADD+0x04))
