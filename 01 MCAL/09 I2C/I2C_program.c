@@ -5,17 +5,77 @@
 #include "01 MCAL/09 I2C/I2C_config.h"
 
 
-void I2C_init(void)
+void I2C_init_master(void)
 {
-	I2C1->CR2 |= 8;
-	I2C1->CCR |= 0x28;
-	I2C1->TRISE |= 9;
+	I2C1->CR2 |= APB_CLK_FREQ;
+
+#if	PE_CHECKING == ENABLED
+	SET_BIT(I2C1->CR1,12);
+#endif
+
+#if	PEC_POSi == ENABLED
+	SET_BIT(I2C1->CR1,11);
+#endif
+
+
+
+#if	GENERAL_CALL == ENABLED
+	SET_BIT(I2C1->CR1,6);
+#endif
+
+#if	PEC_CALCULATION == ENABLED
+	SET_BIT(I2C1->CR1,5);
+#endif
+
+#if	ARP == ENABLED
+	SET_BIT(I2C1->CR1,4);
+#endif
+
+#if	SMBUS_TYPE == HOST
+	SET_BIT(I2C1->CR1,1);
+#endif
+
+#if	SMBBUS_MODE == SMBUS
+	SET_BIT(I2C1->CR1,1);
+#endif
+
+#if	DMA_REQ == ENABLED
+	SET_BIT(I2C1->CR2,1);
+#endif
+
+#if	BUFFER_INTERRUPT == ENABLED
+	SET_BIT(I2C1->CR2,10);
+#endif
+
+#if	EVENT_INTERRUPT == ENABLED
+	SET_BIT(I2C1->CR2,9);
+#endif
+
+#if	ERROR_INTERRUPT == ENABLED
+	SET_BIT(I2C1->CR2,8);
+#endif
+
+#if	MASTER_MODE == FM_MODE
+	SET_BIT(I2C1->CCR,15);
+	#if	FM_DUTY == _16_9_
+		SET_BIT(I2C1->CCR,14);
+	#endif
+		I2C1->CCR |= 0x00;//placeholder
+		I2C1->TRISE |= 0;//placeholder
+#elif MASTER_MODE == SM_MODE
+	u8 temp = (APB_CLK_FREQ * 1000000) / (2 * I2C_FREQ);
+	I2C1->CCR |= temp;
+	I2C1->TRISE |= APB_CLK_FREQ + 1;
+#endif
+
 	SET_BIT(I2C1->CR1,0);
 
 }
 void I2C_start(void)
 {
+#if	ACK == ENABLED
 	SET_BIT(I2C1->CR1,10);
+#endif
 	SET_BIT(I2C1->CR1,8);
 	while (!(I2C1->SR1 & (1<<0)));
 }

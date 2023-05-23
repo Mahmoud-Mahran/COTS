@@ -8,7 +8,7 @@
 #define		NULL			((void *)0)
 #endif
 
-static void (*EXTI_CallBack[16])(void) = {NULL };
+static void (*EXTI_CallBack[16])(void) = {NULL};
 
 void EXTI_voidInit(void) {
 #ifndef			AFIO_EXTICR1

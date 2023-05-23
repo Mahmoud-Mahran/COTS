@@ -1,8 +1,8 @@
 #ifndef		EXTI_CONFIG_H
 #define		EXTI_CONFIG_H
 //Enable or Disable EXTx_INTERRUPT, options :{ ENABLED, DISABLED}
-#define		EXTI0			DISABLED
-#define		EXTI1			DISABLED
+#define		EXTI0			ENABLED
+#define		EXTI1			ENABLED
 #define		EXTI2			ENABLED
 #define		EXTI3			DISABLED
 #define		EXTI4			DISABLED

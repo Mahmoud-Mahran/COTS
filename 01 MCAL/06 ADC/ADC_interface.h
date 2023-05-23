@@ -1,5 +1,6 @@
 #ifndef		ADC_INTERFACE_H
 #define		ADC_INTERFACE_H
+
 #include 	<00 LIB/Bit_Math.h>
 #include 	<00 LIB/Std_Types.h>
 

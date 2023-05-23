@@ -30,7 +30,7 @@
 //		u8 temp = 0;
 //		while (1) {
 //			SPI_send_receive_master('A',&temp);
-//			//SPI_send_receive_master('A',&temp);
+//
 //			if(temp == 'A')
 //				{
 //				DIO_voidSetPinValue(PORTC, PIN13, !(DIO_u8GetPinValue(PORTC, PIN13)));

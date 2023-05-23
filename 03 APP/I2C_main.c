@@ -23,36 +23,34 @@ int main(){
 	LCD_init();
 	_delay_ms(500);
 	I2C_BUSY_FLAG_WORKAROUND();
-	DIO_voidSetPinDirection(PORTB, PIN6,GPIO_OUTPUT_2MHZ_AFOD);
-	DIO_voidSetPinDirection(PORTB, PIN7,GPIO_OUTPUT_2MHZ_AFOD);
-	I2C_reset_pe();
+
+	I2C_init_master();
 	_delay_ms(20);
-	I2C_init();
-	_delay_ms(20);
+//	I2C_start();
+//	_delay_ms(5);
+//	I2C_add_select(eeeprom_addr);
+//	_delay_ms(5);
+//	I2C_Write_Byte(0x00);
+//	_delay_ms(5);
+//	for(int i = 0;i < 16; i++){
+//	I2C_Write_Byte(data[i]);
+//	_delay_ms(5);
+//	}
+//	I2C_stop();
+//	_delay_ms(200);
 	I2C_start();
-	_delay_ms(5);
+	//_delay_ms(1);
 	I2C_add_select(eeeprom_addr);
-	_delay_ms(5);
+	//_delay_ms(5);
 	I2C_Write_Byte(0x00);
-	_delay_ms(5);
-	for(int i = 0;i < 16; i++){
-	I2C_Write_Byte(data[i]);
-	_delay_ms(5);
-	}
-	I2C_stop();
-	_delay_ms(200);
+	//_delay_ms(5);
 	I2C_start();
-	_delay_ms(1);
-	I2C_add_select(eeeprom_addr);
-	I2C_Write_Byte(0x00);
-	_delay_ms(10);
-	I2C_start();
-	_delay_ms(10);
+	//_delay_ms(5);
 	I2C_add_select(eeeprom_addr + 1);
-	_delay_ms(1);
+	//_delay_ms(5);
 	for(int i = 0;i < 16; i++){
 	I2C_Read_Byte(&r_data[i]);
-	_delay_ms(5);
+	//_delay_ms(1);
 	}
 	I2C_stop();
 	while (1)
@@ -87,4 +85,8 @@ void I2C_BUSY_FLAG_WORKAROUND(void){
 	//10
 	DIO_voidSetPinDirection(PORTB, PIN7,GPIO_OUTPUT_2MHZ_OD);
 	DIO_voidSetPinValue(PORTB, PIN7,GPIO_HIGH);
+	DIO_voidSetPinDirection(PORTB, PIN6,GPIO_OUTPUT_2MHZ_AFOD);
+	DIO_voidSetPinDirection(PORTB, PIN7,GPIO_OUTPUT_2MHZ_AFOD);
+	I2C_reset_pe();
+	_delay_ms(20);
 }

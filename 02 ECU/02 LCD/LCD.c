@@ -113,7 +113,7 @@ void LCD_send_string(char *data) {
 		if (i == 16)
 			LCD_send_command(NEXT_LINE);
 		LCD_send_char(data[i]);
-		_delay_ms(20);
+		_delay_ms(5);
 	}
 }
 

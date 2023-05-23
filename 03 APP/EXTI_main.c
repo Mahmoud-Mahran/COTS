@@ -16,7 +16,6 @@
 //	RCC_voidEnablePerClk(RCC_APB2, 4);
 //	RCC_voidEnablePerClk(RCC_APB2, 0);
 //	NVIC_voidInit();
-//	/*	C13 Direction 	"Output @ 2MHz Push Pull"	*/
 //	DIO_voidSetPinDirection(PORTC, PIN13, GPIO_OUTPUT_2MHZ_PP);
 //	DIO_voidSetPinValue(PORTC, PIN13, GPIO_HIGH);
 //	/*	A1 Direction 	"Input Pull-up"	*/
