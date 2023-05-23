@@ -1,10 +1,10 @@
-//#include 	<00 LIB/Bit_Math.h>
-//#include 	<00 LIB/Std_Types.h>
-//#include 	"01 MCAL/00 RCC/RCC_interface.h"
-//#include 	"01 MCAL/01 GPIO/DIO_interface.h"
-//#include 	"01 MCAL/06 ADC/ADC_interface.h"
-//#include	"01 MCAL/06 ADC/ADC_private.h"
-//#include	"02 ECU/02 LCD/LCD.h"
+//#include 	<Bit_Math.h>
+//#include 	<Std_Types.h>
+//#include 	"RCC_interface.h"
+//#include 	"DIO_interface.h"
+//#include 	"ADC_interface.h"
+//#include	"ADC_private.h"
+//#include	"LCD.h"
 //
 //#include 	<stdio.h>
 //int main(void) {

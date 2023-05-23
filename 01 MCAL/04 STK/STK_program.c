@@ -1,8 +1,8 @@
-#include 	<00 LIB/Bit_Math.h>
-#include 	<00 LIB/Std_Types.h>
-#include	"01 MCAL/04 STK/STK_private.h"
-#include	"01 MCAL/04 STK/STK_interface.h"
-#include	"01 MCAL/04 STK/STK_config.h"
+#include 	<Bit_Math.h>
+#include 	<Std_Types.h>
+#include	"STK_private.h"
+#include	"STK_interface.h"
+#include	"STK_config.h"
 
 #ifndef		NULL
 #define		NULL		(void *)0

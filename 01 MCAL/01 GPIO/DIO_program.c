@@ -1,7 +1,7 @@
-#include 	<00 LIB/Bit_Math.h>
-#include 	<00 LIB/Std_Types.h>
-#include	"01 MCAL/01 GPIO/DIO_private.h"
-#include	"01 MCAL/01 GPIO/DIO_interface.h"
+#include 	<Bit_Math.h>
+#include 	<Std_Types.h>
+#include	"DIO_private.h"
+#include	"DIO_interface.h"
 
 void DIO_voidSetPinDirection(u8 port, u8 PIN, u8 Direction) {
 	/*		Range Check 		*/

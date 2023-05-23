@@ -1,8 +1,8 @@
-#include <00 LIB/Std_Types.h>
-#include <00 LIB/Bit_Math.h>
-#include <01 MCAL/07 UART/UART1_config.h>
-#include <01 MCAL/07 UART/UART1_interface.h>
-#include <01 MCAL/07 UART/UART1_private.h>
+#include <Std_Types.h>
+#include <Bit_Math.h>
+#include <UART1_config.h>
+#include <UART1_interface.h>
+#include <UART1_private.h>
 
 void UART_init() {
 	UART1 ->CR1 = 0x0000;

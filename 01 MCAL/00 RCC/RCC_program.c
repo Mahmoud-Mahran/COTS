@@ -1,8 +1,8 @@
-#include 	<00 LIB/Bit_Math.h>
-#include 	<00 LIB/Std_Types.h>
-#include 	"01 MCAL/00 RCC/RCC_private.h"
-#include	"01 MCAL/00 RCC/RCC_interface.h"
-#include	"01 MCAL/00 RCC/RCC_config.h"
+#include 	<Bit_Math.h>
+#include 	<Std_Types.h>
+#include 	"RCC_private.h"
+#include	"RCC_interface.h"
+#include	"RCC_config.h"
 
 void RCC_voidSysClkInt(void) {
 // turning on clocks

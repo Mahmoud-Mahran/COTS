@@ -1,8 +1,8 @@
-#include 	<00 LIB/Bit_Math.h>
-#include 	<00 LIB/Std_Types.h>
-#include	"01 MCAL/03 EXTI/EXTI_private.h"
-#include	"01 MCAL/03 EXTI/EXTI_interface.h"
-#include	"01 MCAL/03 EXTI/EXTI_config.h"
+#include 	<Bit_Math.h>
+#include 	<Std_Types.h>
+#include	"EXTI_private.h"
+#include	"EXTI_interface.h"
+#include	"EXTI_config.h"
 
 #ifndef		NULL
 #define		NULL			((void *)0)

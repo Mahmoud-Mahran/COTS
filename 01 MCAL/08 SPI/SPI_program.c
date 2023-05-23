@@ -1,9 +1,9 @@
-#include "00 LIB/Bit_Math.h"
-#include "00 LIB/Std_Types.h"
-#include "01 MCAL/08 SPI/SPI_private.h"
-#include "01 MCAL/08 SPI/SPI_interface.h"
-#include "01 MCAL/08 SPI/SPI_config.h"
-#include "01 MCAL/01 GPIO/DIO_interface.h"
+#include "Bit_Math.h"
+#include "Std_Types.h"
+#include "SPI_private.h"
+#include "SPI_interface.h"
+#include "SPI_config.h"
+#include "DIO_interface.h"
 
 void SPI_init_master(void)
 {

@@ -1,8 +1,8 @@
-//#include	"00 LIB/Std_Types.h"
-//#include	"00 LIB/Bit_Math.h"
-//#include 	"01 MCAL/01 GPIO/DIO_interface.h"
-//#include	"01 MCAL/00 RCC/RCC_interface.h"
-//#include	"02 ECU/02 LCD/lcd.h"
+//#include	"Std_Types.h"
+//#include	"Bit_Math.h"
+//#include 	"DIO_interface.h"
+//#include	"RCC_interface.h"
+//#include	"lcd.h"
 //
 //int main() {
 //	RCC_voidSysClkInt();

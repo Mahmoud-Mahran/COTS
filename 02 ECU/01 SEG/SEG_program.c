@@ -1,7 +1,7 @@
-#include 	<00 LIB/Bit_Math.h>
-#include 	<00 LIB/Std_Types.h>
-#include	"02 ECU/01 SEG/SEG_interface.h"
-#include	"02 ECU/01 SEG/SEG_config.h"
+#include 	<Bit_Math.h>
+#include 	<Std_Types.h>
+#include	"SEG_interface.h"
+#include	"SEG_config.h"
 
 u8 SEG_u8DisplayNum(u8 num) {
 	u8 temp = 0;

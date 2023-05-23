@@ -1,12 +1,14 @@
-#include "00 LIB/Std_Types.h"
-#include "00 LIB/Bit_Math.h"
-#include "01 MCAL/09 I2C/I2C_private.h"
-#include "01 MCAL/09 I2C/I2C_interface.h"
-#include "01 MCAL/09 I2C/I2C_config.h"
+#include "Std_Types.h"
+#include "Bit_Math.h"
+#include "I2C_private.h"
+#include "I2C_interface.h"
+#include "I2C_config.h"
 
 
 void I2C_init_master(void)
 {
+	I2C1->CR1 = 0x0000;
+	I2C1->CR2 = 0x0000;
 	I2C1->CR2 |= APB_CLK_FREQ;
 
 #if	PE_CHECKING == ENABLED
@@ -16,8 +18,6 @@ void I2C_init_master(void)
 #if	PEC_POSi == ENABLED
 	SET_BIT(I2C1->CR1,11);
 #endif
-
-
 
 #if	GENERAL_CALL == ENABLED
 	SET_BIT(I2C1->CR1,6);

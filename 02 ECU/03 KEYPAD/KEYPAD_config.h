@@ -1,5 +1,9 @@
 #ifndef		KEYPAD_CONFIG_H
 #define		KEYPAD_CONFIG_H
+u8 keypad_chars[4][5] = { 		"147*",
+								"2580",
+								"369#",
+								"ABCD" 		};
 //A,B,C >> 0,1,2
 #define 	row_1_port			1
 #define 	row_2_port			1

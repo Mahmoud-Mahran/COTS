@@ -1,5 +1,5 @@
-//#include	"lib/Std_Types.h"
-//#include	"lib/Bit_Math.h"
+//#include	"Std_Types.h"
+//#include	"Bit_Math.h"
 //
 //#include "DMA_interface.h"
 //#include "RCC_interface.h"

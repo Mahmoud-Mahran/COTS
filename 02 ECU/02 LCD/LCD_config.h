@@ -1,10 +1,3 @@
-/*
- * LCD_config.h
- *
- * Created: 3/27/2023 10:09:30 PM
- *  Author: Mahmo
- */
-
 #ifndef LCD_CONFIG_H_
 #define LCD_CONFIG_H_
 #define RS_PORT	2

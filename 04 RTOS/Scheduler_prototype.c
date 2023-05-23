@@ -1,7 +1,6 @@
-#include	"00 LIB/Std_Types.h"
-#include	"00 LIB/Bit_Math.h"
-#include 	"03 RTOS/Scheduler_prototype.h"
-
+#include	"Std_Types.h"
+#include	"Bit_Math.h"
+#include 	<Scheduler_prototype.h>
 
 Task Create_task(char *name,u8 period,u8 priority,u16 del, void (*ptr)(void)){
 	Task t1;

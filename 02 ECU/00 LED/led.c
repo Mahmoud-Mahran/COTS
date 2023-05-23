@@ -1,8 +1,8 @@
-#include 	<00 LIB/Bit_Math.h>
-#include 	<00 LIB/Std_Types.h>
-#include	"01 MCAL/00 RCC/RCC_interface.h"
-#include	"01 MCAL/01 GPIO/DIO_interface.h"
-#include 	"02 ECU/00 LED/led.h"
+#include 	<Bit_Math.h>
+#include 	<Std_Types.h>
+#include	"RCC_interface.h"
+#include	"DIO_interface.h"
+#include 	"led.h"
 
 void LED_voidLED_init(LEDS *led) {
 	DIO_voidSetPinDirection(led->port, led->pin, GPIO_OUTPUT_2MHZ_PP);
