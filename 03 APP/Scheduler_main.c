@@ -14,7 +14,7 @@
 //
 //
 //int main() {
-//	Task task_stack[3] = {0};
+//
 //	/*	System Clock Init			*/
 //	RCC_voidSysClkInt();
 //	/*	Enable RCC for GPIOS 		*/
@@ -33,14 +33,14 @@
 //
 ////	/*	Call Single Periodic 		*/
 ////	STK_voidSetIntervalPeriodic(1000000, ToggleLed);
-//	task_stack[0] = Create_task("task1", 1, 1,100, T1_func);
-//	task_stack[1] = Create_task("task2", 5, 2,200, T2_func);
-//	task_stack[2] = Create_task("task3", 7, 3,300, T3_func);
+//	Create_task("task1", 1, 1,5, T1_func);
+//	Create_task("task2", 3, 2,10, T2_func);
+//	Create_task("task3", 6, 3,15, T3_func);
 //
-//
+//	STK_voidSetIntervalPeriodic(1000000,start_scheduler);
 //
 //	while (1) {
-//		start_scheduler(task_stack);
+//
 ////		for(int i = 0; i < 3; i++){
 ////		running_f = 1;
 ////		STK_voidSetIntervalPeriodic(task_stack[i].periodicity * 1000000, task_stack[i].ptrfunc);

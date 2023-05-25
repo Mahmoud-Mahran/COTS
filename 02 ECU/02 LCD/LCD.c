@@ -1,4 +1,3 @@
-#include 	<string.h>
 #include 	<Bit_Math.h>
 #include 	<Std_Types.h>
 #include	"RCC_interface.h"
@@ -28,12 +27,11 @@ void LCD_init(void) {
 	_delay_ms(50);
 	LCD_send_command(FUNC_SET);
 #endif
-
-	_delay_ms(50);
+	_delay_ms(5);
 	LCD_send_command(DISPLAY_ON);
-	_delay_ms(50);
+	_delay_ms(5);
 	LCD_send_command(CLEAR_SC);
-	_delay_ms(50);
+	_delay_ms(5);
 	LCD_send_command(ENTRY_M_SET);
 }
 
@@ -50,17 +48,21 @@ void LCD_send_command(u8 command) {
 				GET_BIT(command, i + 4));
 
 	}
+	_delay_ms(5);
 	DIO_voidSetPinValue(E_PORT, E_PIN, GPIO_HIGH);
 	_delay_ms(5);
 	DIO_voidSetPinValue(E_PORT, E_PIN, GPIO_LOW);
+	_delay_ms(5);
 	for (int i = 0; i < 4; i++) {
 		DIO_voidSetPinValue(Local_temp[i + 4][0], Local_temp[i + 4][1],
 				GET_BIT(command, i));
 
 	}
+	_delay_ms(5);
 	DIO_voidSetPinValue(E_PORT, E_PIN, GPIO_HIGH);
 	_delay_ms(5);
 	DIO_voidSetPinValue(E_PORT, E_PIN, GPIO_LOW);
+	_delay_ms(5);
 #endif
 
 #if	(LCD_MODE == BIT_8)
@@ -108,12 +110,13 @@ void LCD_send_char(u8 data) {
 	DIO_voidSetPinValue(E_PORT, E_PIN, GPIO_LOW);
 }
 void LCD_send_string(char *data) {
-
-	for (int i = 0; i < strlen(data); i++) {
+	int i = 0;
+	while (data[i] != '\0') {
 		if (i == 16)
 			LCD_send_command(NEXT_LINE);
 		LCD_send_char(data[i]);
 		_delay_ms(5);
+		i++;
 	}
 }
 

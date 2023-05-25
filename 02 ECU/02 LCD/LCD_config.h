@@ -27,6 +27,6 @@
 #define D6_PIN	6
 #define D7_PIN	7
 
-#define	LCD_MODE		BIT_4
+#define	LCD_MODE		BIT_8
 
 #endif /* LCD_CONFIG_H_ */

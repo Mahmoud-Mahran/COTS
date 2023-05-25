@@ -1,23 +1,29 @@
 #include	"Std_Types.h"
 #include	"Bit_Math.h"
 #include 	<Scheduler_prototype.h>
+Task task_stack[3] = {{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
 
-Task Create_task(char *name,u8 period,u8 priority,u16 del, void (*ptr)(void)){
-	Task t1;
-	t1.name = name;
-	t1.periodicity = period;
-	t1.priority = priority;
-	t1.ptrfunc = ptr;
-	t1.u16FirstDelay = 0;
-	return t1;
+void Create_task(char *name,u8 period,u8 priority,u16 del, void (*ptr)(void)){
+	for (int i = 0; i < 3; i++) {
+		if(task_stack[i].priority == 0){
+			task_stack[i].name = name;
+			task_stack[i].periodicity = period;
+			task_stack[i].priority = priority;
+			task_stack[i].ptrfunc = ptr;
+			task_stack[i].u16FirstDelay = del;
+			break;
+		}
+	}
+
+
 }
-void start_scheduler(Task * stack){
+void start_scheduler(void){
 	for(int i = 0; i < 2; i++){
 		for(int j = i+1; j < 3; j++){
-			if(stack[i].priority > stack[j].priority){
-				Task temp = stack[j];
-				stack[j] = stack[i];
-				stack[i] = temp;
+			if(task_stack[i].priority > task_stack[j].priority){
+				Task temp = task_stack[j];
+				task_stack[j] = task_stack[i];
+				task_stack[i] = temp;
 			}
 		}
 	}
@@ -25,16 +31,16 @@ void start_scheduler(Task * stack){
 	u8 counter;
 	for(counter = 0; counter < 3 ; counter++)
 	{
-		if(stack[counter].u16FirstDelay == 0)
+		if(task_stack[counter].u16FirstDelay == 0)
 		{
 			//Call function
-			stack[counter].ptrfunc();
+			task_stack[counter].ptrfunc();
 			//Periodicity => firstdelay
-			stack[counter].u16FirstDelay = stack[counter].periodicity - 1;
+			task_stack[counter].u16FirstDelay = task_stack[counter].periodicity - 1;
 		}
 		else
 		{
-			stack[counter].u16FirstDelay--;
+			task_stack[counter].u16FirstDelay--;
 		}
 	}
 

@@ -14,11 +14,13 @@ void 		I2C_enable_pe(void);
 
 
 
-#define		READ							0
-#define		WRITE							1
+#define		ENABLED							1
+#define		DISABLED						0
 
-#define		ENABLED							2
-#define		DISABLED						3
+#define		READ							2
+#define		WRITE							3
+
+
 
 #define		DEVICE							4
 #define		HOST							5

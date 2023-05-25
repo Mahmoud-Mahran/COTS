@@ -492,7 +492,7 @@ void ADC_Init(void) {
 #endif
 	if(TEMP_SENSOR_VREF == ENABLED) SET_BIT(ADC1->CR2, 23);
 
-	ADC1->CR2 |= 1 << 0;
+	SET_BIT(ADC1->CR2,0);
 	_delay_ms(50);
 	if(ADC1_CALIBRATIN  == ENABLED){
 		SET_BIT(ADC1->CR2, 2);
@@ -508,4 +508,7 @@ void ADC_Start(void) {
 
 u16 ADC_Read(void) {
 	return (u16) ADC1->DR;
+}
+void ADC_Stop(void){
+	CLR_BIT(ADC1->CR2,0);
 }

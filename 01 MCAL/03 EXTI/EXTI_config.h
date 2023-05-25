@@ -1,18 +1,18 @@
 #ifndef		EXTI_CONFIG_H
 #define		EXTI_CONFIG_H
 //Enable or Disable EXTx_INTERRUPT, options :{ ENABLED, DISABLED}
-#define		EXTI0			ENABLED
-#define		EXTI1			ENABLED
-#define		EXTI2			ENABLED
+#define		EXTI0			DISABLED
+#define		EXTI1			DISABLED
+#define		EXTI2			DISABLED
 #define		EXTI3			DISABLED
 #define		EXTI4			DISABLED
 #define		EXTI5			DISABLED
 #define		EXTI6			DISABLED
 #define		EXTI7			DISABLED
 #define		EXTI8			DISABLED
-#define		EXTI9			DISABLED
-#define		EXTI10			DISABLED
-#define		EXTI11			DISABLED
+#define		EXTI9			ENABLED
+#define		EXTI10			ENABLED
+#define		EXTI11			ENABLED
 #define		EXTI12			DISABLED
 #define		EXTI13			DISABLED
 #define		EXTI14			DISABLED
@@ -44,9 +44,9 @@
 #define		EXTI6_ch_mode	FALLING_EDGE
 #define		EXTI7_ch_mode	FALLING_EDGE
 #define		EXTI8_ch_mode	FALLING_EDGE
-#define		EXTI9_ch_mode	FALLING_EDGE
-#define		EXTI10_ch_mode	FALLING_EDGE
-#define		EXTI11_ch_mode	FALLING_EDGE
+#define		EXTI9_ch_mode	RISING_EDGE
+#define		EXTI10_ch_mode	RISING_EDGE
+#define		EXTI11_ch_mode	RISING_EDGE
 #define		EXTI12_ch_mode	FALLING_EDGE
 #define		EXTI13_ch_mode	FALLING_EDGE
 #define		EXTI14_ch_mode	FALLING_EDGE

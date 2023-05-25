@@ -11,8 +11,8 @@ typedef struct{
 	void (*ptrfunc)(void);
 }Task;
 
-Task Create_task(char *name,u8 period,u8 priority,u16 del, void (*ptr)(void));
-void start_scheduler(Task * stack);
+void Create_task(char *name,u8 period,u8 priority,u16 del, void (*ptr)(void));
+void start_scheduler(void);
 
 
 
